@@ -1,0 +1,143 @@
+What is Object oriented Programming?
+
+A pattern for writing clean and maintainable code.
+
+Functional programming is another set of principles used to write clean and maintainable code.
+
+The purpose is to make code easier to work with, identify bugs easier and make development faster.
+
+
+DRY Code?
+
+Don't Repeat Yourself.
+
+Avoid writing code that needs to be repeated. 
+
+Code such as the following:
+
+____Python____
+
+soldier_one_dps = soldier_one["damage"] * soldier_one["attacks_per_second"]
+soldier_two_dps = soldier_two["damage"] * soldier_two["attacks_per_second"]
+______________
+
+Use the same logic over two lines on the right hand side of the equation.
+
+Instead the right hand side can be represented with a new function:
+
+___Python____
+
+def get_soldier_dps(Soldier):
+	dps = soldier["damange"] * soldier["attacks_per_second"]
+	return dps
+
+soldier_one_dps = get_soldier_dps(soldier1)
+soldier_two_dps = get_soldier_dps(soldier2)
+_____________
+
+
+Classes:
+
+What is a class?
+
+A special type of value, similar to a dictionary that usually stores other types inside itself.
+
+____Python____
+
+class Soldier:
+	health = 5
+	armor = 5
+	damage = 5
+______________
+
+Unlike other types, Classes are a custom type that you define.
+
+An OBJECT is just an instance of a class type.
+
+____Python____
+health = 50
+#instance of an integer type
+
+aragorn = soldier()
+#instance of a soldier type (Class)
+______________
+
+Classes are custom new types that we define. Each new instance is an OBJECT.
+
+____Python____
+class Archer:
+	health = 40
+	arrows = 10
+
+legolas = Archer()
+
+#call objects properties
+print(legolas.health) # 40 
+print(legolas.arrows) # 10
+
+
+Defining Methods:
+
+A method is a function that's tied directly to a class and has access to all its properties.
+
+____Python____
+class Soldier:
+	health = 5
+
+	def take_damage(self, damage):
+		self.health -= damage
+
+soldier_one = soldier()
+soldier_one.take_damage(2)
+print(soldier_one.health) # 3
+______________
+
+
+Methods are nested within the class itself and are defined in the same way as functions. 
+
+The first parameter of any method is always the instance of the class that the method is being called upon.
+By convention, this is called 'self'.
+'self' is a reference to the object. This can be used to read and update the properties of the object.
+
+By using 'self' you are updating the attributes of the object and not the class.
+Any methods applied to 'self' will affect only that object.
+
+
+Methods Return Values:
+
+Methods often don't return anything and are used to manipulate the properties of the object.
+They can be used to return objects.
+They are just functions that have access to an object.
+
+
+Constructors:
+
+It's rare that a class is defined strictly as shown above.
+Instead Constructors are used to define objects dynamically.
+the '__init__' method is a specially named method which is called when a new object is created.
+this can allow properties to be set upon instantiation.
+
+____Python____
+
+class Soldier:
+	def __init__ (self, name, age, gender):
+		self.name = name
+		self.age = age
+		self.gender = gender
+soldier = Soldier("Legolas", 20, "Male")
+
+print(soldier.name) # Legolas
+print(soldier.age) #20
+______________
+
+This allows for properties that are configurable on creation. 
+
+
+Class variables vs Instance Variables:
+
+variables, starting with 'self.', are desclared by the constructor. 
+Class variables remain the same between instances of the same class and are declard at the top level of a class definition.
+
+By updating class variables, this affects every instance of the class.
+other names for class variables are global or static variables.
+
