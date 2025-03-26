@@ -1,0 +1,29 @@
+Encapsulation is the method of hiding complexity so minimize uneccessary information.
+
+A function is a method of Encapsulation. When you call the function, the only important details are the inputs and outputs.
+
+
+Public and private properties:
+By default, all properties and methods in a class are public. Being public means that they are accessible using the '.' operator.
+
+Private data members are how we encapsulate logic and data within a class. To make a property private, you just need to prefix it with two underscores.
+The purpose is to identify which properties and methods are required to be accessible outside of the class, and which properties are only required within the class for calculations.
+
+____Python____
+
+class Wizard:
+    def __init__(self, name, stamina, intelligence):
+        self.__stamina = stamina
+        self.__intelligence = intelligence
+        
+        self.name = name
+        self.mana  = 100 * self.__intelligence
+        self.health = 100 * self.__stamina
+
+______________
+
+properties __stamina and __intelligence are not addressable outside the class.
+
+This does not constitute security and should not be used for secure code. The practice is for organization.
+
+the convention of using __foo is simply convention and not a forced rule like in other languages. __foo suggests that users of that class shouldn't modify these properties.
