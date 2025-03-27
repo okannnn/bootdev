@@ -88,9 +88,9 @@ class deckOfCards:
             ("8", "Hearts", 8),
             ("9", "Hearts", 9),
             ("10", "Hearts", 10),
-            ("Jack", "Hearts", 11),
-            ("Queen", "Hearts", 12),
-            ("King", "Hearts", 13)
+            ("Jack", "Hearts", 10),
+            ("Queen", "Hearts", 10),
+            ("King", "Hearts", 10)
         ]
     
         random.Random(self.seed).shuffle(self.cardset)
@@ -101,6 +101,18 @@ class deckOfCards:
 
     def deckSize(self):
         return len(self.cardset)
+    
+    def shuffle(self):
+        random.Random(self.seed).shuffle(self.cardset)
+
+    def drawCards(self, n):
+        self.__tempHand = []
+
+        for i in range(1, n+1):
+            self.__tempHand.append(self.drawCard())
+        
+        return self.__tempHand
+
 
 """
 x = deckOfCards(1)
